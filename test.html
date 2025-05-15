@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>인터스텔라 정보</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #111;
+      color: #fff;
+    }
+    img {
+      border-radius: 10px;
+      max-width: 300px;
+    }
+    .container {
+      display: flex;
+      gap: 20px;
+    }
+    .cast-list img {
+      width: 100px;
+      border-radius: 50%;
+    }
+    .backdrops img {
+      max-width: 400px;
+      margin: 10px;
+      border: 2px solid #444;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="title">영화 제목</h1>
+  <div class="container">
+    <img id="poster" src="" alt="포스터">
+    <div>
+      <p><strong>개봉일:</strong> <span id="release-date"></span></p>
+      <p><strong>평점:</strong> <span id="vote"></span></p>
+      <p><strong>장르:</strong> <span id="genres"></span></p>
+      <p><strong>줄거리:</strong><br><span id="overview"></span></p>
+    </div>
+  </div>
+
+  <h2>출연 배우</h2>
+  <div class="cast-list" id="cast"></div>
+
+  <h2>추가 이미지</h2>
+  <div class="backdrops" id="backdrops"></div>
+
+  <script>
+    const BASE_URL = 'https://api.themoviedb.org/3';
+    const IMAGE_BASE = 'https://image.tmdb.org/t/p/w500';
+
+    async function getMovieDetails() {
+      const res = await fetch(`${BASE_URL}/movie/${MOVIE_ID}?api_key=${API_KEY}&language=ko`);
+      const data = await res.json();
+
+      document.getElementById('title').innerText = data.title;
+      document.getElementById('poster').src = IMAGE_BASE + data.poster_path;
+      document.getElementById('release-date').innerText = data.release_date;
+      document.getElementById('vote').innerText = data.vote_average;
+      document.getElementById('overview').innerText = data.overview;
+      document.getElementById('genres').innerText = data.genres.map(g => g.name).join(', ');
+    }
+
+    async function getCast() {
+      const res = await fetch(`${BASE_URL}/movie/${MOVIE_ID}/credits?api_key=${API_KEY}&language=ko`);
+      const data = await res.json();
+      const castContainer = document.getElementById('cast');
+
+      data.cast.slice(0, 6).forEach(actor => {
+        const div = document.createElement('div');
+        div.style.display = 'inline-block';
+        div.style.textAlign = 'center';
+        div.style.margin = '10px';
+
+        const img = document.createElement('img');
+        img.src = actor.profile_path ? IMAGE_BASE + actor.profile_path : '';
+        const name = document.createElement('p');
+        name.innerText = actor.name;
+
+        div.appendChild(img);
+        div.appendChild(name);
+        castContainer.appendChild(div);
+      });
+    }
+
+    async function getImages() {
+      const res = await fetch(`${BASE_URL}/movie/${MOVIE_ID}/images?api_key=${API_KEY}`);
+      const data = await res.json();
+      const backdrops = data.backdrops.slice(0, 5);  // 최대 5장
+
+      const container = document.getElementById('backdrops');
+      backdrops.forEach(img => {
+        const image = document.createElement('img');
+        image.src = IMAGE_BASE + img.file_path;
+        container.appendChild(image);
+      });
+    }
+
+    getMovieDetails();
+    getCast();
+    getImages();
+  </script>
+</body>
+</html>
