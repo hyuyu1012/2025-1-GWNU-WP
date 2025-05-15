@@ -1,3 +1,4 @@
+const apiKey = '83208cea7376cafd22248a47491ff283';
 const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR&page=1`;
 const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=27&language=ko-KR&page=1`;
 
