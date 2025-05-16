@@ -1,0 +1,953 @@
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+    background-color: #141414;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+ul {
+    list-style: none;
+}
+
+/* 네비게이션 바 - 그라데이션 효과 추가 */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 68px;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7) 10%, transparent);
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background: linear-gradient(to right, #8B0000, #e50914);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.logo a {
+    color: #e50914;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+/* 스크롤 시 로고 색상 변화 추가 */
+.navbar.scrolled .logo a {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.main-nav ul {
+    display: flex;
+}
+
+.main-nav li {
+    margin-right: 18px;
+}
+
+.main-nav .nav-link {
+    color: #e5e5e5;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.main-nav .nav-link:hover, 
+.main-nav .nav-link.active {
+    color: #fff;
+}
+
+/* 스크롤 시 네비게이션 링크 효과 */
+.navbar.scrolled .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.navbar.scrolled .nav-link:hover, 
+.navbar.scrolled .nav-link.active {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-box {
+    margin-right: 20px;
+    cursor: pointer;
+}
+
+/* 로그인 버튼 스타일 */
+.login-btn {
+    background-color: #e50914;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #f40612;
+}
+
+/* 메인 배너 */
+.banner {
+    position: relative;
+    height: 80vh;
+    background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+    color: #fff;
+    object-fit: contain;
+}
+
+.banner-contents {
+    margin-left: 60px;
+    padding-top: 250px;
+    max-width: 500px;
+}
+
+.banner-title {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.banner-desc {
+    width: 100%;
+    font-size: 1rem;
+    line-height: 1.5;
+    max-width: 400px;
+    margin-top: 20px;
+}
+
+.banner-buttons {
+    display: flex;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    outline: none;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 8px 24px;
+    margin-right: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.play-btn {
+    background-color: #fff;
+    color: #000;
+}
+
+.play-btn:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.more-info-btn {
+    background-color: rgba(109, 109, 110, 0.7);
+    color: #fff;
+}
+
+.more-info-btn:hover {
+    background-color: rgba(109, 109, 110, 0.4);
+}
+
+.banner-fadeBottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 120px;
+    background-image: linear-gradient(
+        180deg,
+        transparent,
+        rgba(20, 20, 20, 0.6),
+        #141414
+    );
+}
+
+/* 영화 목록 섹션 */
+.row-container {
+    margin: 40px 0;
+    padding: 0 60px;
+}
+
+.row-title {
+    font-size: 1.5rem;
+    margin-bottom: 16px;
+    transition: all 0.3s ease;
+}
+
+/* 스크롤 시 콘텐츠 행 타이틀에 애니메이션 효과 */
+@keyframes titleGlow {
+    0% { text-shadow: 0 0 5px rgba(229, 9, 20, 0); }
+    50% { text-shadow: 0 0 10px rgba(229, 9, 20, 0.5); }
+    100% { text-shadow: 0 0 5px rgba(229, 9, 20, 0); }
+}
+
+/* 스크롤 위치에 따라 콘텐츠 행 타이틀에 애니메이션 적용 */
+.row-container.in-view .row-title {
+    animation: titleGlow 3s infinite;
+    color: #e5e5e5;
+}
+
+.row-posters {
+    display: flex;
+    overflow-x: scroll;
+    padding: 10px 0;
+    scrollbar-width: none; /* Firefox */
+}
+
+.row-posters::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.poster-item {
+    margin-right: 10px;
+    transition: transform 0.3s;
+}
+
+.poster-item img {
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.poster-item:hover {
+    transform: scale(1.08);
+}
+
+/* 푸터 */
+.footer {
+    padding: 40px 60px;
+    color: #757575;
+    margin-top: 60px;
+}
+
+.footer-content {
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.social-links {
+    margin-bottom: 20px;
+}
+
+.social-links a {
+    margin-right: 20px;
+    color: #757575;
+    font-size: 1.5rem;
+}
+
+.social-links a:hover {
+    color: #fff;
+}
+
+.footer-links {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.footer-links ul {
+    margin-right: 80px;
+}
+
+.footer-links li {
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: #757575;
+    font-size: 0.8rem;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 0.8rem;
+}
+
+/* 모달 스타일 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    overflow: auto;
+}
+
+.modal-content {
+    background-color: #181818;
+    margin: 10% auto;
+    padding: 30px;
+    width: 350px;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    color: white;
+    animation: modalFade 0.3s ease-in;
+}
+
+@keyframes modalFade {
+    from {opacity: 0; transform: translateY(-30px);}
+    to {opacity: 1; transform: translateY(0);}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover {
+    color: white;
+}
+
+.modal-content h2 {
+    margin-bottom: 20px;
+    color: white;
+}
+
+.modal-content p {
+    margin-bottom: 25px;
+    color: #ccc;
+}
+
+/* 구글 로그인 버튼 커스텀 스타일 */
+.g_id_signin {
+    margin: 15px auto;
+    display: flex;
+    justify-content: center;
+}
+
+/* 로그인 폼 스타일 */
+.login-separator {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+}
+
+.login-separator:before,
+.login-separator:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #333;
+}
+
+.login-separator:before {
+    left: 0;
+}
+
+.login-separator:after {
+    right: 0;
+}
+
+.login-separator span {
+    background-color: #181818;
+    padding: 0 10px;
+    color: #999;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form input {
+    padding: 12px 15px;
+    border-radius: 4px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: white;
+}
+
+.login-form input::placeholder {
+    color: #aaa;
+}
+
+.login-form-btn {
+    padding: 12px;
+    background-color: #e50914;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.login-form-btn:hover {
+    background-color: #f40612;
+}
+
+/* 사용자 프로필 드롭다운 메뉴 */
+.profile-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.profile-dropdown img {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #181818;
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    z-index: 1;
+    padding: 15px;
+}
+
+.profile-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+#user-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+#user-email {
+    font-size: 0.8rem;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+#logout-btn {
+    background-color: transparent;
+    color: #e50914;
+    border: 1px solid #e50914;
+    padding: 8px 12px;
+    width: 100%;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+#logout-btn:hover {
+    background-color: rgba(229, 9, 20, 0.1);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 960px) {
+    .navbar {
+        padding: 0 30px;
+    }
+    
+    .banner-contents {
+        margin-left: 30px;
+        max-width: 70%;
+    }
+    
+    .row-container {
+        padding: 0 30px;
+    }
+    
+    .modal-content {
+        width: 90%;
+        max-width: 350px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-nav li {
+        margin-right: 10px;
+    }
+    
+    .main-nav .nav-link {
+        font-size: 0.8rem;
+    }
+    
+    .banner-title {
+        font-size: 2.2rem;
+    }
+    
+    .banner-desc {
+        font-size: 0.9rem;
+    }
+    
+    .footer-links {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 0 15px;
+        height: 60px;
+    }
+    
+    .logo a {
+        font-size: 1.5rem;
+    }
+    
+    .main-nav {
+        display: none;
+    }
+    
+    .banner {
+        height: 60vh;
+    }
+    
+    .banner-contents {
+        padding-top: 150px;
+        margin-left: 15px;
+    }
+    
+    .banner-title {
+        font-size: 1.8rem;
+    }
+    
+    .row-container {
+        padding: 0 15px;
+    }
+    
+    .login-btn {
+        padding: 6px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+/* 영화 포스터 스타일 업데이트 */
+.poster-item {
+    margin-right: 15px;
+    transition: all 0.3s ease;
+    position: relative;
+    width: 180px;
+    cursor: pointer;
+}
+
+.poster-item img {
+    width: 100%;
+    height: 250px;
+    border-radius: 4px;
+    object-fit: cover;
+}
+
+.poster-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    color: white;
+    padding: 10px;
+    font-size: 0.85rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+.poster-item:hover {
+    transform: scale(1.08);
+}
+
+.poster-item:hover .poster-title {
+    opacity: 1;
+}
+
+/* 영화 상세 모달 스타일 */
+.movie-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow: auto;
+}
+
+.movie-modal-content {
+    background-color: #181818;
+    margin: 5% auto;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    color: white;
+    animation: modalFade 0.3s ease-in;
+    overflow: hidden;
+}
+
+.movie-modal-close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 2100;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.movie-modal-close:hover {
+    color: white;
+    background-color: rgba(229, 9, 20, 0.7);
+}
+
+.movie-detail-container {
+    position: relative;
+}
+
+.movie-detail-header {
+    position: relative;
+    height: 400px;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 40px 40px 40px;
+    background-size: cover;
+    background-position: center;
+}
+
+.movie-detail-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to top, #181818, transparent 60%, rgba(0, 0, 0, 0.7));
+    z-index: 1;
+}
+
+#modal-movie-poster {
+    width: 200px;
+    height: 300px;
+    border-radius: 4px;
+    margin-right: 30px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+.movie-detail-info {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+}
+
+#modal-movie-title {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.movie-meta {
+    font-size: 1rem;
+    color: #ccc;
+    margin-bottom: 15px;
+}
+
+.divider {
+    margin: 0 8px;
+}
+
+.movie-rating {
+    display: flex;
+    align-items: center;
+    color: #FFD700;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.movie-rating i {
+    margin-right: 5px;
+}
+
+.movie-detail-body {
+    padding: 30px 40px 40px 40px;
+}
+
+#modal-movie-description {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.movie-detail-cast h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.cast-list {
+    display: flex;
+    overflow-x: auto;
+    gap: 15px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.cast-item {
+    min-width: 120px;
+    text-align: center;
+}
+
+.cast-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.cast-name {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.cast-character {
+    font-size: 0.8rem;
+    color: #aaa;
+}
+
+.movie-actions {
+    display: flex;
+    gap: 15px;
+}
+
+.movie-action-btn {
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
+.add-list-btn {
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+}
+
+.add-list-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+    .movie-detail-header {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        padding-top: 60px;
+    }
+    
+    #modal-movie-poster {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .movie-detail-info {
+        text-align: center;
+    }
+    
+    #modal-movie-title {
+        font-size: 1.8rem;
+    }
+    
+    .movie-actions {
+        flex-direction: column;
+    }
+}
+/* 배너 스와이퍼 스타일 */
+.banner-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  color: white;
+}
+
+.banner-swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.banner, .banner-1, .banner-2, .banner-3 {
+  width: 100%;
+  height: 700px;
+  background-size: cover;
+  background-position: center top;
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.banner-1 {
+  background-image: url('https://image.tmdb.org/t/p/original/rQTW9oQZFsujMlvyYBjbwa8LYkD.jpg');
+}
+
+.banner-2 {
+  background-image: url('https://image.tmdb.org/t/p/original/yfqObflcOrCFOdhFKTzUiGflLbQ.jpg');
+}
+
+.banner-3 {
+  background-image: url('https://image.tmdb.org/t/p/original/7I6VUdPj6tQECNHdviJkUHD2u89.jpg');
+}
+
+.banner-contents {
+  padding: 0 20px 0 50px;
+  grid-column: 1;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 140%;
+  max-width: 550px;
+}
+
+
+.banner-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+.banner-fadeBottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  background-image: linear-gradient(180deg, transparent, rgba(20, 20, 20, 0.6), #141414);
+}
+
+/* 선택 탭 스타일 */
+.tab-buttons {
+  display: flex;
+  margin: 20px 0;
+  padding-left: 50px;
+}
+
+.tab-button {
+  padding: 8px 20px;
+  margin-right: 10px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.tab-button.active {
+  background: rgba(255, 255, 255, 0.7);
+  color: black;
+  font-weight: bold;
+}
+
+/* 스와이퍼 네비게이션 버튼 (좌우 화살표) */
+.swiper-button-next, .swiper-button-prev {
+  color: #0078ff; /* 이미지의 파란색 */
+  width: 50px; /* 크기 변경 */
+  height: 50px; /* 크기 변경 */
+  background: rgba(0, 0, 0, 0.5); /* 배경색 추가 */
+  border-radius: 50%; /* 원형 모양 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 화살표 아이콘 크기 */
+.swiper-button-next:after, .swiper-button-prev:after {
+  font-size: 20px; /* 아이콘 크기 */
+}
+
+/* 페이지네이션 점 버튼 */
+.swiper-pagination-bullet {
+  background: white; /* 기본 색상 */
+  width: 10px; /* 크기 변경 */
+  height: 10px; /* 크기 변경 */
+}
+
+.swiper-pagination-bullet-active {
+  background: #0078ff; /* 활성화된 점 색상 - 이미지의 파란색 */
+}
+
+/* 리뷰 섹션 스타일 */
+.movie-detail-reviews {
+    margin: 30px 0;
+}
+
+.reviews-list {
+    margin-top: 15px;
+}
+
+.review-item {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.reviewer-name {
+    font-weight: bold;
+    color: #e5e5e5;
+}
+
+.review-date {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.review-rating {
+    color: #ffca28;
+    margin-bottom: 8px;
+}
+
+.review-text {
+    line-height: 1.5;
+    color: #e5e5e5;
+}

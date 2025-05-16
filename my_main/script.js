@@ -1,29 +1,3 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // 배너 스와이퍼 초기화
-  const bannerSwiper = new Swiper('.banner-swiper', {
-    direction: 'horizontal',
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-    
-    // 네비게이션 화살표
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    
-    // 페이지네이션 (하단 점)
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    }
-  });
-});
-
-
-const apiKey = '121a5e186c390bd116148ef2172f1eda'
 const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR&page=1`;
 const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=27&language=ko-KR&page=1`;
 
