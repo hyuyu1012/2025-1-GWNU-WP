@@ -10,7 +10,9 @@
     box-sizing: border-box;
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
-
+html {
+  overflow-x: hidden;
+}
 body {
     background-color: #13111a;
     color: #fff;
