@@ -1,6 +1,3 @@
-import config from "./config.js";
-const { apiKey } = config;
-
 document.addEventListener('DOMContentLoaded', function() {
   // 배너 스와이퍼 초기화
   const bannerSwiper = new Swiper('.banner-swiper', {
