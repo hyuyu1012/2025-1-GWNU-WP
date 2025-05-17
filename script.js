@@ -1,3 +1,5 @@
+const apiKey = process.env.apiKey;
+console.log(apiKey)
 document.addEventListener('DOMContentLoaded', function() {
   // 배너 스와이퍼 초기화
   const bannerSwiper = new Swiper('.banner-swiper', {
