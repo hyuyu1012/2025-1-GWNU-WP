@@ -122,7 +122,7 @@ header.scrolled {
 .options > button {
   margin: 0.4%;
   padding: 10px 20px;
-  background: linear-gradient(135deg, #2E3192, #1BFFFF);
+  background: linear-gradient(135deg, #845ec2, #2c73d2);
   border: none;
   border-radius: 15px;
   color: #fff;
@@ -139,8 +139,10 @@ header.scrolled {
   transform: scale(1.05);
 }
 
+
 .options > button.selected {
-  background: linear-gradient(135deg, #845ec2, #2c73d2);
+  background: linear-gradient(135deg, #2E3192, #1BFFFF);
+
   font-weight: 900;
   opacity: 100%;
 }
@@ -162,37 +164,15 @@ header.scrolled {
   transform: translateY(-3px);
 }
 
-
-
-
-
-
-
-.result-card {
-  margin-top: 40px;
-  padding: 20px;
-  background: #222;
-  border-radius: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.7);
-  animation: fadeIn 0.8s ease forwards;
-}
-
-.result-card img {
+#result {
+  margin-top: 10vh;
+  display: flex;
+  gap: 0% 1%;
+  overflow-x: auto;
   width: 100%;
-  border-radius: 15px;
-  margin-bottom: 20px;
+  flex-wrap:wrap;
 }
 
-.hidden {
+#result::-webkit-scrollbar{
   display: none;
 }
-
-
-
-
-
-@keyframes fadeIn {
-  0% { opacity: 0; transform: translateY(20px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
