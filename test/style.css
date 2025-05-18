@@ -119,41 +119,54 @@ header.scrolled {
   margin-top: 20vh;
 }
 
-.question {
-}
-
-.options button {
-  margin: 8px;
+.options > button {
+  margin: 0.4%;
   padding: 10px 20px;
-  background-color: #e50914;
+  background: linear-gradient(135deg, #2E3192, #1BFFFF);
   border: none;
-  border-radius: 30px;
+  border-radius: 15px;
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
+  font-weight: 500;
+  opacity: 100%;
 }
 
-.options button:hover {
+/* 작동 왜 안하지?  */
+.options > button:hover {
   background-color: #b20710;
   transform: scale(1.05);
 }
 
+.options > button.selected {
+  background: linear-gradient(135deg, #845ec2, #2c73d2);
+  font-weight: 900;
+  opacity: 100%;
+}
+
 .result-btn {
-  margin-top: 30px;
+  margin-top: 10vh;
   padding: 15px 30px;
   font-size: 1.3rem;
-  border-radius: 30px;
-  background: linear-gradient(45deg, #e50914, #b20710);
+  border-radius: 15px;
+  background: linear-gradient(135deg, #2E3192, #1BFFFF);
   color: white;
   border: none;
   cursor: pointer;
   transition: transform 0.3s ease;
 }
 
+
 .result-btn:hover {
   transform: translateY(-3px);
 }
+
+
+
+
+
+
 
 .result-card {
   margin-top: 40px;
@@ -183,9 +196,3 @@ header.scrolled {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-button.selected {
-  background-color: #ffffff;
-  color: #e50914;
-  border: 2px solid #e50914;
-  font-weight: bold;
-}
