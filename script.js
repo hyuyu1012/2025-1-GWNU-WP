@@ -69,18 +69,6 @@ fetch(url2)
   })
   .catch(err => console.log(err));
 
-  
-prevButton.addEventListener('click', () => {
-  if (index === 0) return;
-  index -= 1;
-  updateTransform();
-});
-
-nextButton.addEventListener('click', () => {
-  if (index === 2) return;
-  index += 1;
-  updateTransform();
-});
 
 // 브라우저 크기 변경 시 다시 계산
 window.addEventListener('resize', updateTransform);
