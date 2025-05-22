@@ -116,7 +116,9 @@ header.scrolled {
 
 .container {
   margin-top: 20vh;
+  
 }
+
 
 .options > button {
   margin: 0.4%;
@@ -130,6 +132,10 @@ header.scrolled {
   transition: all 0.3s ease;
   font-weight: 500;
   opacity: 100%;
+}
+
+button {
+  border: none;
 }
 
 /* 작동 왜 안하지?  */

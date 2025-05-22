@@ -1,7 +1,6 @@
 :root {
   --main-color : #13111a;
   --white : rgb(255,255,255);
-  --black : #0D0D0D;
   --main-gradient : linear-gradient(135deg, #845ec2, #2c73d2);
   --sub-gradient : linear-gradient(135deg, #2E3192, #1BFFFF);
 }
@@ -12,14 +11,16 @@
     box-sizing: border-box;
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
+
 html {
   overflow-x: hidden;
 }
 body {
     min-height: 100vh;
-    background-color: #13111a;
-    color: #fff;
+    background-color: var(--main-color);
+    color: var(--white);
 }
+
 header {
   position: fixed;
   top: 0;
@@ -90,8 +91,8 @@ header.scrolled {
 .search-bar input {
   padding: 10px 15px;
   border: 1px solid #333;
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background-color: rgba(255, 255, 255, 0.1); 
+  color: var(--white);
   border-radius: 4px 0 0 4px;
   width: 200px;
   transition: all 0.3s;
@@ -105,7 +106,7 @@ header.scrolled {
 .search-bar button {
   padding: 10px 15px;
   background: var(--main-gradient);
-  color: #fff;
+  color: var(--white);
   border: none;
   border-radius: 0 4px 4px 0;
   cursor: pointer;
@@ -119,7 +120,6 @@ header.scrolled {
 main {
   margin: 0vh 1vw;
   margin-top: 20vh;
-  
 }
 
 main > .container {
@@ -127,14 +127,18 @@ main > .container {
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 300px);
   gap: 25px;
-}
+} 
 
 main > .container > div {
+  width: 440px;
+  height: 300px;  
   background: var(--main-gradient);
   cursor: pointer;
-  border-radius: 12px;
+  border-radius: 15px;
   transition: all 0.3s ease; /* ✨ 부드러운 전환 효과 */
+  padding: 15% 10%;
 }
+
 
 main > .container > div:hover {
   transform: scale(1.05);
@@ -142,32 +146,31 @@ main > .container > div:hover {
   filter: brightness(1.05);
 }
 
-main > .container > p {
-
+.title {
+  font-weight: 600;
+  font-size: 1.3rem;
 }
 
 main > .container > .box1 {
-  background: linear-gradient(135deg, #008f7a, #6dd5ed);  
+  background: var(--main-gradient)
 }
 main > .container > .box2 {
-  background: var(--main-gradient);
+  background: linear-gradient(135deg, #4b2c5e, #8f5da2, #d6b4e8);
 }
 main > .container > .box3 {
-  background: var(--sub-gradient);
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
 }
 main > .container > .box4 {
-  background: linear-gradient(135deg, #008f7a, #6dd5ed);  
+background: linear-gradient(135deg, #F7B733, #FBE87F);
+
 }
 main > .container > .box5 {
-  background: linear-gradient(135deg, #008f7a, #6dd5ed);  
+  background: var(--sub-gradient);
 }
 main > .container > .box6 {
   background: linear-gradient(135deg, #008f7a, #6dd5ed);  
 }
 
-.title {
-  
-}
 .container > div > button {
   margin-top: 5%;
   background-color: transparent;
