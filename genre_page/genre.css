@@ -13,12 +13,12 @@
     font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 
+
 body {
     min-height: 100vh;
     background-color: #13111a;
     color: #fff;
 }
-
 
 header {
   position: fixed;
@@ -118,30 +118,30 @@ header.scrolled {
 
 main {
   margin-top: 20vh;
+  padding: 2vw;
 }
 
-.movie-list {
+#movies {
   margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10vh;
 }
-
-
 
 .movie {
-  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #fff;
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
 }
+
 .movie img {
-  width: 100%;
+  width: 10%;
   border-radius: 8px;
 }
+
+
 .movie h3 {
   margin: 10px 0 5px;
   font-size: 16px;

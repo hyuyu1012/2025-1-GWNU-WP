@@ -18,8 +18,7 @@ const imageBase = 'https://image.tmdb.org/t/p/w500';
         const poster = movie.poster_path ? imageBase + movie.poster_path : '';
         const title = movie.title;
         const rating = movie.vote_average;
-
-
+        const overview = movie.overview
 
         const div = document.createElement("div");
         div.classList.add("movie");
@@ -27,7 +26,9 @@ const imageBase = 'https://image.tmdb.org/t/p/w500';
           ${poster ? `<img src="${poster}" alt="${title} 포스터">` : ''}
           <h3>${title}</h3>
           <div class="rating">⭐ ${rating.toFixed(1)}</div>
-        `;
+          <div class="overview">${overview}</div>
+          `
+        ;
         movieList.appendChild(div);
       }
     });
