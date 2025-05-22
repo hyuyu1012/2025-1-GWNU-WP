@@ -16,10 +16,10 @@ html {
   overflow-x: hidden;
 }
 body {
+    min-height: 100vh;
     background-color: #13111a;
     color: #fff;
 }
-
 header {
   position: fixed;
   top: 0;
@@ -113,4 +113,69 @@ header.scrolled {
 }
 
 .search-bar button:hover {
-  background: linear-gradient(135deg, #2E3192, #1BFFFF);}
+  background: linear-gradient(135deg, #2E3192, #1BFFFF);
+}
+
+main {
+  margin: 0vh 1vw;
+  margin-top: 20vh;
+  
+}
+
+main > .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 300px);
+  gap: 25px;
+}
+
+main > .container > div {
+  background: var(--main-gradient);
+  cursor: pointer;
+  border-radius: 12px;
+  transition: all 0.3s ease; /* ✨ 부드러운 전환 효과 */
+}
+
+main > .container > div:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+  filter: brightness(1.05);
+}
+
+main > .container > p {
+
+}
+
+main > .container > .box1 {
+  background: linear-gradient(135deg, #008f7a, #6dd5ed);  
+}
+main > .container > .box2 {
+  background: var(--main-gradient);
+}
+main > .container > .box3 {
+  background: var(--sub-gradient);
+}
+main > .container > .box4 {
+  background: linear-gradient(135deg, #008f7a, #6dd5ed);  
+}
+main > .container > .box5 {
+  background: linear-gradient(135deg, #008f7a, #6dd5ed);  
+}
+main > .container > .box6 {
+  background: linear-gradient(135deg, #008f7a, #6dd5ed);  
+}
+
+.title {
+  
+}
+.container > div > button {
+  margin-top: 5%;
+  background-color: transparent;
+  width: 30%;
+  height: 20%;
+  border: 1px solid var(--white);
+  border-radius: 30px;
+  color: white;
+  font-weight: 700;
+  font-size: 100%;
+}
