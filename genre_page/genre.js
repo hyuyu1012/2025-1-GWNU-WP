@@ -24,9 +24,11 @@ const imageBase = 'https://image.tmdb.org/t/p/w500';
         div.classList.add("movie");
         div.innerHTML = `
           ${poster ? `<img src="${poster}" alt="${title} 포스터">` : ''}
+          <div class="info">
           <h3>${title}</h3>
           <div class="rating">⭐ ${rating.toFixed(1)}</div>
           <div class="overview">${overview}</div>
+          </div>
           `
         ;
         movieList.appendChild(div);
