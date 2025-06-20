@@ -3,6 +3,8 @@
   --white : rgb(255,255,255);
   --main-gradient : linear-gradient(135deg, #845ec2, #2c73d2);
   --sub-gradient : linear-gradient(135deg, #2E3192, #1BFFFF);
+  --card-color : #1E1D26;
+
 }
 
 * {
@@ -157,14 +159,11 @@ main {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.2);
 }
 
-
-
-
-
 #movies {
   margin-top: 20px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   gap: 3vh;
 }
 
@@ -174,7 +173,7 @@ main {
   box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
-  background: var(--main-gradient);
+  background: var(--card-color);
 }
 
 .info {
