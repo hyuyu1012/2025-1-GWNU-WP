@@ -123,6 +123,10 @@ a:visited {
 .search-bar button:hover {
   background: var(--sub-gradient);
 }
+
+main {
+  margin-top: 20vh;
+}
     
 .title{
   text-align:center;
