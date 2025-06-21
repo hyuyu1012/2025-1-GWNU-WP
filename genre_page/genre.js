@@ -29,7 +29,7 @@ const imageBase = 'https://image.tmdb.org/t/p/w500';
           
           <div class="info">
           <h3>${title}</h3>
-          <div class="rating">⭐ ${rating.toFixed(1)}</div>
+          <div class="rating"> <span class="rating">★ ${rating.toFixed(1)}</span></div>
           <div class="overview">${overview}</div>
           </div>
           `
