@@ -189,4 +189,5 @@ main > .container > .box6 {
   color: white;
   font-weight: 700;
   font-size: 100%;
+  /* cursor: pointer; */
 }
