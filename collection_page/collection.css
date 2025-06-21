@@ -134,12 +134,12 @@ main > .container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 300px);
-  gap: 2vw;
+  gap: 2vh;
 } 
 
 main > .container > div {
-  width: 440px;
-  height: 300px;
+  /* width: 440px; */
+  /* height: 300px; */
   background: var(--main-gradient);
   cursor: pointer;
   border-radius: 15px;
