@@ -2,7 +2,7 @@ const collections = document.querySelectorAll(".box");
 
 collections.forEach((collection, index) => {
   collection.addEventListener('click', function() {
-    alert(index);
+    location.href = `${index}_collection.html`;
   })
 })
 
