@@ -40,7 +40,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR&page=1`;
 const url2 = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=27&language=ko-KR&page=1`;
-
+const url3 = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR&page=2`;
+const url4 = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR&page=3`;
+const url5 = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=ko-KR&page=4`;
 const prevButton = document.querySelector('.prev');
 const nextButton = document.querySelector('.next');
 const carousel = document.querySelector('.carousel');
@@ -76,6 +78,62 @@ fetch(url2)
   .then(data => {
     const movies = data.results;
     const container = document.getElementById('movieContainer2');
+    movies.slice(0, 20).forEach(movie => {
+      const movieDiv = document.createElement('div');
+      movieDiv.className = 'movie';
+      movieDiv.innerHTML = `
+        <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
+        class="poster"
+        alt="${movie.title}"
+        data-id="${movie.id}" />`;
+      container.appendChild(movieDiv);
+    });
+  })
+  .catch(err => console.log(err));
+
+  fetch(url3)
+  .then(response => response.json())
+  .then(data => {
+    const movies = data.results;
+    const container = document.getElementById('movieContainer3');
+    movies.slice(0, 20).forEach(movie => {
+      const movieDiv = document.createElement('div');
+      movieDiv.className = 'movie';
+      movieDiv.innerHTML = `
+        <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
+        class="poster"
+        alt="${movie.title}"
+        data-id="${movie.id}" />`;
+      container.appendChild(movieDiv);
+    });
+  })
+  .catch(err => console.log(err));
+
+
+  fetch(url4)
+  .then(response => response.json())
+  .then(data => {
+    const movies = data.results;
+    const container = document.getElementById('movieContainer5');
+    movies.slice(0, 20).forEach(movie => {
+      const movieDiv = document.createElement('div');
+      movieDiv.className = 'movie';
+      movieDiv.innerHTML = `
+        <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
+        class="poster"
+        alt="${movie.title}"
+        data-id="${movie.id}" />`;
+      container.appendChild(movieDiv);
+    });
+  })
+  .catch(err => console.log(err));
+
+
+  fetch(url5)
+  .then(response => response.json())
+  .then(data => {
+    const movies = data.results;
+    const container = document.getElementById('movieContainer4');
     movies.slice(0, 20).forEach(movie => {
       const movieDiv = document.createElement('div');
       movieDiv.className = 'movie';
@@ -196,7 +254,6 @@ document.addEventListener("click", async (e) => {
         } else {
           modalCastList.textContent = '출연진 정보 없음';
         }
-
         // 재생 버튼 링크 설정
         if (trailer) {
           modalPlayButton.onclick = () => window.open(`https://www.youtube.com/watch?v=${trailer.key}`, '_blank');
@@ -205,8 +262,6 @@ document.addEventListener("click", async (e) => {
           modalPlayButton.disabled = true; // 버튼 비활성화
           modalPlayButton.textContent = '예고편 없음';
         }
-
-
         // 모달 표시
         modal.style.display = 'flex'; // flex로 변경하여 가운데 정렬 활용
 

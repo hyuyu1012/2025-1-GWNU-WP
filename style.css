@@ -315,14 +315,55 @@ a:visited {
   overflow : auto;
 }
 
+#movieContainer3 {
+  gap :0% 1%;
+  margin-top: 2%;
+  margin-left: 1%;
+  width: 100%;
+  height : 30vh;
+  display: flex;
+  flex-wrap : nowrap;
+  overflow : auto;
+}
+
+#movieContainer4 {
+  gap :0% 1%;
+  margin-top: 2%;
+  margin-left: 1%;
+  width: 100%;
+  height : 30vh;
+  display: flex;
+  flex-wrap : nowrap;
+  overflow : auto;
+}
+
+#movieContainer5 {
+  gap :0% 1%;
+  margin-top: 2%;
+  margin-left: 1%;
+  width: 100%;
+  height : 30vh;
+  display: flex;
+  flex-wrap : nowrap;
+  overflow : auto;
+}
+
+
 #movieContainer::-webkit-scrollbar {
   display: none;
 }
-
 #movieContainer2::-webkit-scrollbar {
   display: none;
 }
-
+#movieContainer3::-webkit-scrollbar {
+  display: none;
+}
+#movieContainer4::-webkit-scrollbar {
+  display: none;
+}
+#movieContainer5::-webkit-scrollbar {
+  display: none;
+}
 .movie {
   height: 100%
 }
@@ -340,7 +381,7 @@ h2 {
 }
 
 .gradient-box {
-  margin: 4% auto;
+  margin: 2% auto;
   width: 98%;
   height: 40vh;
   background: linear-gradient(135deg, #2E3192, #1BFFFF);
@@ -350,8 +391,8 @@ h2 {
   font-size: 2rem;
   font-weight: 600;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
 }
-
 .gradient-box > button {
   margin-top: 2%;
   background-color: transparent;
