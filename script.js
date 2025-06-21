@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     direction: 'horizontal',
     loop: true,
     autoplay: {
-      delay: 5000,
+      delay: 10000,
       disableOnInteraction: false,
     },
 
