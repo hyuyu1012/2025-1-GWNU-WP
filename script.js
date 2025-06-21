@@ -48,7 +48,10 @@ fetch(url)
       const movieDiv = document.createElement ('div');
       movieDiv.className = 'movie';
       movieDiv.innerHTML = `
-        <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}" class="poster" alt="${movie.title}" /> `;
+        <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}" 
+        class="poster" 
+        alt="${movie.title}" 
+        data-id="${movie.id}" />`;
       container.appendChild(movieDiv);
     });
   })
@@ -63,7 +66,10 @@ fetch(url2)
       const movieDiv = document.createElement ('div');
       movieDiv.className = 'movie';
       movieDiv.innerHTML = `
-        <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}" class="poster" alt="${movie.title}" /> `;
+        <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}" 
+        class="poster" 
+        alt="${movie.title}" 
+        data-id="${movie.id}" />`;
       container.appendChild(movieDiv);
     });
   })
@@ -74,9 +80,8 @@ fetch(url2)
 window.addEventListener('resize', updateTransform);
 
 
-// 이벤트 위임
-document.addEventListener("click", (e) => {
+document.addEventListener("click", async (e) => {
   if (e.target.classList.contains("poster")) {
-    alert("무비 포스터 클릭!");
+    alert("포스터를 클릭했습니다.");
   }
 });

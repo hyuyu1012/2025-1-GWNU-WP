@@ -200,4 +200,8 @@ background: linear-gradient(135deg, #F7B733, #FBE87F);
   transition: all 0.3s ease; /* ✨ 부드러운 전환 효과 */
 }
 
+i {
+  margin-left: 45px;
+}
+
 
