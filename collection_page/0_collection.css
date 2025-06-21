@@ -157,16 +157,17 @@ main {
   font-weight: bold;
 }
 
-.title {
-
+.movie-title {
+  margin: 0;
+  width: 115px;
 }
 
 .sub {
-  margin-left: 40px;
+  margin: 0 auto;
+  /* margin-left: 40px; */
   font-size: 10px;
   font-style: italic;
 }
-
 
 .box1 {
   background: var(--main-gradient)
