@@ -131,7 +131,6 @@ main {
 }
 
 main > .container {
-  margin : 0 auto;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(2, 300px);
@@ -139,8 +138,8 @@ main > .container {
 } 
 
 main > .container > div {
-  width: 440px;
-  height: 300px;  
+  /* width: 440px; */
+  /* height: 300px; */
   background: var(--main-gradient);
   cursor: pointer;
   border-radius: 15px;
