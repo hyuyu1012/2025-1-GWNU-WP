@@ -3,7 +3,11 @@ const apiKey='592c72e8e39159933cbebc58d0947536';
 // keyword button 
 document.querySelectorAll('.options button').forEach(btn => { 
   btn.addEventListener('click', () => {
-    btn.classList.toggle('selected');
+    // 먼저 모든 버튼에서 selected 제거
+    document.querySelectorAll('.options button').forEach(b => b.classList.remove('selected'));
+    
+    // 현재 클릭한 버튼에만 selected 추가
+    btn.classList.add('selected');
   });
 });
 

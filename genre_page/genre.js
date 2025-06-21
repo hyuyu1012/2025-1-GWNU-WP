@@ -4,7 +4,7 @@ const imageBase = 'https://image.tmdb.org/t/p/w500';
     document.getElementById("genre").addEventListener("change", async function () {
       //comboxbox value 가져오기
       const genreId = this.value;
-      const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&language=ko-KR&page=1`;
+      const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&language=ko-KR&page=1&include_adult=false`;
 
       const response = await fetch(url);
       const data = await response.json();
