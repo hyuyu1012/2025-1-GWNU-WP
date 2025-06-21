@@ -1,8 +1,5 @@
 const apiKey = '592c72e8e39159933cbebc58d0947536';
 
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
   // 배너 스와이퍼 초기화
   const bannerSwiper = new Swiper('.banner-swiper', {
@@ -274,3 +271,8 @@ document.addEventListener("click", async (e) => {
     }
   }
 });
+
+
+document.querySelector('.gradient-box').addEventListener('click', function() {
+  location.href = "collection_page/4_collection.html";
+})
