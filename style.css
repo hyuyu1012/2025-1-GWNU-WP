@@ -446,3 +446,262 @@ h2 {
   font-weight: 700;
   font-size: 60%;
 }
+
+
+
+
+
+/* Modal Overlay */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* Prevent scrolling on body */
+    background-color: rgba(0, 0, 0, 0.7); /* Black w/ opacity */
+     /* Use flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 20px; /* Padding around the modal for smaller screens */
+    box-sizing: border-box;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: #1a1a1a; /* Dark background */
+    border-radius: 10px;
+    width: 90%;
+    max-width: 900px; /* Increased max-width for better display */
+    max-height: 90vh; /* Max height to fit viewport, allow scroll if content is long */
+    overflow-y: auto; /* Enable vertical scroll for modal content if it overflows */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+    position: relative;
+    color: #e0e0e0; /* Light text color */
+    font-family: 'Noto Sans KR', sans-serif; /* 한국어 폰트 적용 (필요시 body에 추가) */
+}
+
+/* Close Button */
+.close-button {
+    color: #fff;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 100; /* Ensure it's above other content */
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    opacity: 1;
+}
+
+/* Modal Header Background (for movie backdrop) */
+.modal-header-background {
+    width: 100%;
+    height: 350px; /* Fixed height for the header background */
+    background-size: cover;
+    background-position: center center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    position: relative;
+    display: flex; /* For overlay and content alignment */
+    align-items: flex-end; /* Align content to the bottom */
+    padding: 20px 40px; /* Padding for content inside the header */
+    box-sizing: border-box;
+    /* Gradient Overlay */
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to top, rgba(26, 26, 26, 1) 0%, rgba(26, 26, 26, 0.8) 20%, rgba(26, 26, 26, 0.5) 50%, rgba(26, 26, 26, 0.2) 75%, rgba(26, 26, 26, 0) 100%);
+    }
+}
+
+.modal-header-content {
+    display: flex;
+    align-items: flex-end; /* Align poster and text info at the bottom */
+    position: relative; /* To be above the gradient */
+    z-index: 10;
+    width: 100%; /* Take full width of parent */
+    gap: 30px; /* Space between poster and text */
+}
+
+/* Movie Poster inside Modal */
+#modal-poster {
+    width: 180px; /* Specific width for modal poster */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    margin-bottom: -60px; /* Overlap with the background a bit */
+    position: relative;
+    z-index: 1;
+}
+
+/* Modal Info Text (Title, Meta, Overview) */
+.modal-info-text {
+    flex-grow: 1; /* Take remaining space */
+    padding-top: 60px; /* Space from top due to poster overlap */
+}
+
+.modal-info-text h2 {
+    font-size: 3em; /* Larger title */
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.2;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.modal-meta-info {
+    font-size: 1.1em;
+    color: #bbb;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.dot-separator {
+    margin: 0 8px; /* Space around the dot */
+}
+
+.modal-rating {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #46d369; /* Green color for rating */
+    margin-bottom: 15px;
+}
+
+.modal-info-text p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+    max-height: 150px; /* Limit overview height */
+    overflow-y: auto; /* Scroll for long overview */
+}
+
+/* Modal Body Section (Cast) */
+.modal-body-section {
+    padding: 30px 40px;
+    background-color: #1a1a1a; /* Match modal content background */
+    border-top: 1px solid #333; /* Separator line */
+    margin-top: 60px; /* Space from header due to poster overlap */
+}
+
+.modal-body-section h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.cast-list {
+    display: flex;
+    flex-wrap: wrap; /* Wrap items to next line */
+    gap: 10px 15px; /* Row and column gap */
+}
+
+.cast-item {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.95em;
+    white-space: nowrap; /* Prevent actor names from breaking */
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between dot and name */
+}
+
+.cast-item::before {
+    content: '•';
+    color: #46d369; /* Green dot */
+    font-weight: bold;
+}
+
+
+/* Modal Buttons */
+.modal-buttons {
+    display: flex;
+    gap: 15px;
+    padding: 30px 40px;
+    background-color: #1a1a1a;
+    border-top: 1px solid #333;
+    justify-content: flex-start;
+}
+
+.modal-buttons button {
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.modal-play-button {
+    background-color: #fff;
+    color: #1a1a1a;
+}
+
+.modal-play-button:hover {
+    background-color: #e6e6e6;
+}
+
+.modal-my-content-button {
+    background-color: #333;
+    color: #fff;
+}
+
+.modal-my-content-button:hover {
+    background-color: #444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+    }
+    .modal-header-background {
+        height: 250px;
+        padding: 15px 20px;
+    }
+    .modal-header-content {
+        flex-direction: column; /* Stack poster and info vertically */
+        align-items: center; /* Center them */
+        text-align: center;
+    }
+    #modal-poster {
+        width: 150px;
+        margin-bottom: 20px; /* Adjust overlap for smaller screens */
+    }
+    .modal-info-text {
+        padding-top: 0; /* Remove top padding when stacked */
+    }
+    .modal-info-text h2 {
+        font-size: 2em;
+    }
+    .modal-body-section, .modal-buttons {
+        padding: 20px;
+    }
+    .cast-list {
+        justify-content: center; /* Center cast items */
+    }
+    .modal-buttons {
+        flex-direction: column; /* Stack buttons vertically */
+    }
+}

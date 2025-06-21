@@ -124,9 +124,43 @@
         <button type="button">더 알아보기</button>
       </article>  
     </section>
-
-
+<div class="modal">
+  <div class="modal-content">
+    <span class="close-button">&times;</span>
+    <div class="modal-header-background">
+      <div class="modal-header-content">
+        <img id="modal-poster" src="" alt="영화 포스터">
+        <div class="modal-info-text">
+          <h2 id="modal-title"></h2>
+          <div class="modal-meta-info">
+            <span id="modal-release-year"></span>
+            <span class="dot-separator"> • </span>
+            <span id="modal-age-rating"></span>
+            <span class="dot-separator"> • </span>
+            <span id="modal-runtime"></span>
+          </div>
+          <div class="modal-rating">
+            <span id="modal-vote-average"></span>/10
+          </div>
+          <p id="modal-overview"></p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-body-section">
+      <h3>출연진</h3>
+      <div id="modal-cast-list" class="cast-list">
+        </div>
+    </div>
+    <div class="modal-buttons">
+      <button class="modal-play-button">
+        <i class="fas fa-play"></i> 재생
+      </button>
+      <button class="modal-my-content-button">
+        <i class="fas fa-plus"></i> 내가 찜한 콘텐츠
+      </button>
+    </div>
+  </div>
+</div>
 <script src="script.js" defer></script>
 </body>
-
 </html>
