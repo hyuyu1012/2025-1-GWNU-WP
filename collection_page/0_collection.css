@@ -193,3 +193,11 @@ background: linear-gradient(135deg, #F7B733, #FBE87F);
   background: linear-gradient(135deg, #008f7a, #6dd5ed);  
 }
 
+.movie:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+  filter: brightness(1.05);
+  transition: all 0.3s ease; /* ✨ 부드러운 전환 효과 */
+}
+
+
