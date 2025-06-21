@@ -2,7 +2,7 @@ const apiKey='592c72e8e39159933cbebc58d0947536';
 const imageBase = 'https://image.tmdb.org/t/p/w500';
 
     document.getElementById("genre").addEventListener("change", async function () {
-      //combobox value 가져오기
+      //comboxbox value 가져오기
       const genreId = this.value;
       const url = `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&with_genres=${genreId}&language=ko-KR&page=1`;
 
@@ -37,3 +37,5 @@ const imageBase = 'https://image.tmdb.org/t/p/w500';
         movieList.appendChild(div);
       }
     });
+
+    document.getElementById("genre").dispatchEvent(new Event("change"));

@@ -160,14 +160,14 @@ button {
 }
 
 .options > button.selected {
-  background: var(--sub-gradient);
-  font-weight: 900;
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  font-weight: 600;
   opacity: 100%;
 }
 
 .result-btn {
-  margin-top: 10vh;
-  padding: 15px 30px;
+  margin-top: 10vh auto;
+  padding: 15px 25px;
   font-size: 1.3rem;
   border-radius: 10px;
   background: var(--main-gradient);
@@ -177,9 +177,9 @@ button {
   transition: transform 0.3s ease;
 }
 
-
 .result-btn:hover {
   transform: translateY(-3px);
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
 }
 
 #result {
