@@ -48,7 +48,7 @@ fetch(url)
       const movieDiv = document.createElement ('div');
       movieDiv.className = 'movie';
       movieDiv.innerHTML = `
-        <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}" alt="${movie.title}" /> `;
+        <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}" class="poster" alt="${movie.title}" /> `;
       container.appendChild(movieDiv);
     });
   })
@@ -63,7 +63,7 @@ fetch(url2)
       const movieDiv = document.createElement ('div');
       movieDiv.className = 'movie';
       movieDiv.innerHTML = `
-        <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}" alt="${movie.title}" /> `;
+        <img src="https://image.tmdb.org/t/p/w300${movie.poster_path}" class="poster" alt="${movie.title}" /> `;
       container.appendChild(movieDiv);
     });
   })
@@ -72,3 +72,11 @@ fetch(url2)
 
 // 브라우저 크기 변경 시 다시 계산
 window.addEventListener('resize', updateTransform);
+
+
+// 이벤트 위임
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("poster")) {
+    alert("무비 포스터 클릭!");
+  }
+});
