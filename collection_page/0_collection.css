@@ -148,7 +148,6 @@ main {
   display: flex;
   justify-content: start;
   align-items: center;
-  text-align: center;
   width: 45%;
   height: 80px;
   border-radius: 5px;
@@ -156,6 +155,16 @@ main {
   min-width: 530px;
   padding-left: 20px;
   font-weight: bold;
+}
+
+.title {
+
+}
+
+.sub {
+  margin-left: 40px;
+  font-size: 10px;
+  font-style: italic;
 }
 
 
@@ -182,3 +191,4 @@ background: linear-gradient(135deg, #F7B733, #FBE87F);
 .box6 {
   background: linear-gradient(135deg, #008f7a, #6dd5ed);  
 }
+
