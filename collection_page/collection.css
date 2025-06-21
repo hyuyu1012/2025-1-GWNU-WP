@@ -170,8 +170,8 @@ main > .container > .box3 {
 }
 main > .container > .box4 {
 background: linear-gradient(135deg, #F7B733, #FBE87F);
-
 }
+
 main > .container > .box5 {
   background: var(--sub-gradient);
 }

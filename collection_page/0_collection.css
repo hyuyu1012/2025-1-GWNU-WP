@@ -146,11 +146,39 @@ main {
 
 .movie {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   text-align: center;
-  width: 40%;
-  height: 40px;
-  border-radius: 10px;
-  border: 1px solid #fff;
+  width: 45%;
+  height: 80px;
+  border-radius: 5px;
+  opacity: 0.88;
+  min-width: 530px;
+  padding-left: 20px;
+  font-weight: bold;
+}
+
+
+.box1 {
+  background: var(--main-gradient)
+}
+
+.box2 {
+  background: linear-gradient(135deg, #4b2c5e, #8f5da2, #d6b4e8);
+}
+
+.box3 {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+}
+
+.box4 {
+background: linear-gradient(135deg, #F7B733, #FBE87F);
+}
+
+.box5 {
+  background: var(--sub-gradient);
+}
+
+.box6 {
+  background: linear-gradient(135deg, #008f7a, #6dd5ed);  
 }
