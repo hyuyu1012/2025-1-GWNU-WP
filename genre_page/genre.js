@@ -20,10 +20,13 @@ const imageBase = 'https://image.tmdb.org/t/p/w500';
         const rating = movie.vote_average;
         const overview = movie.overview
 
+
+        //.movie
         const div = document.createElement("div");
         div.classList.add("movie");
         div.innerHTML = `
           ${poster ? `<img src="${poster}" alt="${title} 포스터">` : ''}
+          
           <div class="info">
           <h3>${title}</h3>
           <div class="rating">⭐ ${rating.toFixed(1)}</div>
