@@ -1,5 +1,6 @@
 const apiKey = '592c72e8e39159933cbebc58d0947536';
-console.log(apiKey)
+
+
 
 
 document.addEventListener('DOMContentLoaded', function() {

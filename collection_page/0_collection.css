@@ -128,6 +128,20 @@ a:visited {
 main {
   margin-top: 20vh;
 }
+.back {
+  font-size: 16px;
+        padding: 8px 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        background: linear-gradient(135deg, #845ec2, #2c73d2);
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-left: 30px;
+        border: none;
+        color: white;
+}
 
 .title{
   text-align:center;
